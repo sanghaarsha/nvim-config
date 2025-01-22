@@ -8,10 +8,17 @@ return {
 
     null_ls.setup({
       sources = {
-        null_ls.builtins.completion.spell,
+        --Lua
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
-        require("none-ls.diagnostics.eslint")
+        --JS/TS
+        null_ls.builtins.formatting.prettierd,
+        require("none-ls.diagnostics.eslint"),
+        --PHP
+        null_ls.builtins.formatting.pint,
+        null_ls.builtins.diagnostics.phpstan,
+        --SQL
+        null_ls.builtins.formatting.sqlfluff,
+        null_ls.builtins.diagnostics.sqlfluff,
       },
     })
     vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
