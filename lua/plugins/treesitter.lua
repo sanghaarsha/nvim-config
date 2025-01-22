@@ -15,7 +15,6 @@ return {
         "jsdoc",
         "json",
         "jsonc",
-        "latex",
         "lua", 
         "php",
         "python",
