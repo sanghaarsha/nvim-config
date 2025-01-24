@@ -15,13 +15,16 @@ vim.opt.cursorline = true     -- Highlight current line
 vim.opt.showmatch = true      -- Highlight matching brackets
 vim.opt.termguicolors = true  -- Enable true color support
 
--- Show terminal at bottom
+-- Terminal commands
+vim.api.nvim_create_user_command("TermBelow", "split | wincmd j | terminal", {})
+vim.api.nvim_create_user_command("TermResize", "resize -5", {})
+
+-- Automatically enter insert mode in terminal
 vim.cmd [[
-  command! TermBelow split | wincmd j | terminal
+  autocmd TermOpen * startinsert
 ]]
 
--- Resize terminal
-vim.cmd [[
-  command! TermResize resize -5
-]]
-
+-- Keybindings
+vim.keymap.set('n', '<leader>trb', ':TermBelow<CR>', { noremap = true, silent = true }) -- Open terminal
+vim.keymap.set('n', '<leader>trs', ':TermResize<CR>', { noremap = true, silent = true }) -- Resize terminal
+vim.keymap.set('n', '<leader>src', 'source $MYVIMRC<CR>', { noremap = true, silent = true }) -- Source config
