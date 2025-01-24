@@ -15,3 +15,13 @@ vim.opt.cursorline = true     -- Highlight current line
 vim.opt.showmatch = true      -- Highlight matching brackets
 vim.opt.termguicolors = true  -- Enable true color support
 
+-- Show terminal at bottom
+vim.cmd [[
+  command! TermBelow split | wincmd j | terminal
+]]
+
+-- Resize terminal
+vim.cmd [[
+  command! TermResize resize -5
+]]
+
