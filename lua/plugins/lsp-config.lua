@@ -17,7 +17,6 @@ return {
           "ts_ls",
           "intelephense",
           "sqls",
-          "volar",
           "tailwindcss",
         },
       })
